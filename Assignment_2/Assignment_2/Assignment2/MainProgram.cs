@@ -22,6 +22,10 @@
 
             WorkingSchedule workingSchedule = new WorkingSchedule();
             workingSchedule.start();
+
+            Console.Clear();
+            Console.WriteLine("Have a nice rest of the day, press any key to exit");
+            Console.ReadKey();
         }
 
         /// <summary>
