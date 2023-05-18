@@ -1,0 +1,246 @@
+﻿<Window x:Class="Assignment3_WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment3_WpfApp"
+        mc:Ignorable="d"
+        Title="Super Calculator by Jens" Height="652" Width="800">
+
+
+    <Border Margin="2" >
+        <StackPanel>
+
+            <!--#region Grid1 BMICalculator.left, Saving plane right-->
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--#region Stack for BMI Calculator-->
+                <Border BorderThickness="2" BorderBrush="#eee" Padding="2">
+                    <StackPanel Grid.Column="0">
+                        <!--BMI Calculator-->
+                        <TextBlock Text="BMI Calculator" FontWeight="Bold" FontSize="13" Padding="2"/>
+                        <!--Grid for name and unit-->
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!--region Name-->
+                            <Grid Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+
+                                <TextBlock Text="Name:" Grid.Row="0" Grid.Column="0" Padding="2"  Margin="2"/>
+                                <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Padding="2"  Margin="2"/>
+
+                                <TextBlock x:Name="heightHeaderText" Text="Height (ft and in)" Grid.Row="1" Grid.Column="0" Padding="2"  Margin="2"/>
+                                <TextBox x:Name="HeightFeetTextBox" Grid.Row="1" Grid.Column="1" Padding="2" Margin="2"/>
+                                <TextBox x:Name="HeightInchCmTextBox" Grid.Row="1" Grid.Column="2" Padding="2"  Margin="2"/>
+
+                                <TextBlock x:Name="weightHeaderText" Text="Weight" Grid.Row="2" Grid.Column="0"  Padding="2"  Margin="2"/>
+                                <TextBox x:Name="WeightTextBox" Grid.Row="2" Grid.Column="2"  Padding="2"  Margin="2"/>
+
+                                <Button x:Name="BMICalculatorButton" Click="BMICalculatorButton_Click" Content="Calculate" FontSize="14" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Padding="2" Margin="02 15"/>
+                            </Grid>
+
+                            <!--#endregion Name-->
+                            <!--#region Unit-->
+                            <StackPanel Grid.Column="1" Margin="25 00">
+                                <TextBlock Text="Unit" FontWeight="Bold" FontSize="13" Padding="6"/>
+                                <RadioButton x:Name="metricRadio" Content="Metric" Checked="UnitRadioButton_Checked" VerticalContentAlignment="Center" Padding="3"/>
+                                <RadioButton x:Name="impertialRadio" Content="Imperial" Checked="UnitRadioButton_Checked" VerticalContentAlignment="Center" Padding="3"/>
+                            </StackPanel>
+                            <!--#endregion Unit-->
+                        </Grid>
+
+                        <!--#region Results from BMI calculator-->
+                        <TextBlock x:Name="bmiResultsHead" Text="Results" FontWeight="Bold" FontSize="13" Padding="2"/>
+                        <StackPanel>
+                            <!--BMI-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="BMI: " Padding="2"  Margin="2" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="bmiReslutTextBox" IsReadOnly="True" Background="#eee" Grid.Column="1" Padding="2" Margin="2" TextAlignment="Left"/>
+                            </Grid>
+                            <!--Weight Category-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Weight Category: " Padding="2"  Margin="2" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="weightCategoryTextBox"  IsReadOnly="True" Background="#eee" Text="" Grid.Column="1" Padding="2" Margin="2" TextAlignment="Left"/>
+                            </Grid>
+                            <TextBlock Text="Normal BMI is between 18.50 and 24.9" Padding="2"  Margin="2" TextAlignment="Center"/>
+                            <TextBlock x:Name="normalWeightTextBox"  FontWeight="Light" Padding="2" Margin="2" TextAlignment="Center"/>
+
+                        </StackPanel>
+                        <!--#endregion BMI calc results-->
+                    </StackPanel>
+                </Border>
+                <!--#endregion End of BMI calculator-->
+
+
+                <!--#region Stack for Saving plan-->
+                <Border  BorderThickness="2" BorderBrush="#eee" Padding="2" Grid.Column="1">
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Savings Plan" FontWeight="Bold" FontSize="13" Padding="2"/>
+                        <!--#region Savings input-->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Initial Deposit" Margin="2" Padding="2" Grid.Column="0" Grid.Row="0"/>
+                            <TextBox x:Name="initialDepositTextBox" Margin="2" Padding="2" Grid.Column="1" Grid.Row="0"/>
+                            <TextBlock Text="Monthly Deposit" Margin="2" Padding="2" Grid.Column="0" Grid.Row="1"/>
+                            <TextBox x:Name="monthlyDepositTextBox" Margin="2" Padding="2" Grid.Column="1" Grid.Row="1"/>
+                            <TextBlock Text="Period (years)" Margin="2" Padding="2" Grid.Column="0" Grid.Row="2"/>
+                            <TextBox x:Name="periodTextBox" Margin="2" Padding="2" Grid.Column="1" Grid.Row="2"/>
+                            <TextBlock Text="Growth (%)" Margin="2" Padding="2" Grid.Column="0" Grid.Row="3"/>
+                            <TextBox x:Name="growthTextBox" Margin="2" Padding="2" Grid.Column="1" Grid.Row="3"/>
+                            <TextBlock Text="Fees (%)" Margin="2" Padding="2" Grid.Column="0" Grid.Row="4"/>
+                            <TextBox x:Name="feesTextBox" Margin="2" Padding="2" Grid.Column="1" Grid.Row="4"/>
+                        </Grid>
+                        <!--#endregion Savings input-->
+                        <Button x:Name="savingsCalcButton" Content="Calculate" Click="savingsCalcButton_Click" FontSize="14"  Padding="2" Margin="02 15"/>
+                        <!--#region Savings Results-->
+                        <TextBlock Text="Future Value" FontWeight="Bold" FontSize="13" Padding="2"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Total amount deposed"  Margin="2" Padding="2" Grid.Column="0" Grid.Row="0"/>
+                            <TextBox x:Name="amountPaidTextBox" IsReadOnly="True" Background="#eee" Margin="2" Padding="2" Grid.Column="1" Grid.Row="0"/>
+                            <TextBlock Text="Total earnings"  Margin="2" Padding="2" Grid.Column="0" Grid.Row="1"/>
+                            <TextBox x:Name="amountEarnedTextBox" IsReadOnly="True" Background="#eee" Margin="2" Padding="2" Grid.Column="1" Grid.Row="1"/>
+                            <TextBlock Text="Final balance"   Margin="2" Padding="2" Grid.Column="0" Grid.Row="2"/>
+                            <TextBox x:Name="finalBalanceTextBox" IsReadOnly="True" Background="#eee" Margin="2" Padding="2" Grid.Column="1" Grid.Row="2"/>
+                            <TextBlock Text="Total fees paid"  Margin="2" Padding="2" Grid.Column="0" Grid.Row="3"/>
+                            <TextBox x:Name="totalFeesTextBox" IsReadOnly="True" Background="#eee" Margin="2" Padding="2" Grid.Column="1" Grid.Row="3"/>
+                        </Grid>
+                        <!--#endregion SavingsResults-->
+
+                    </StackPanel>
+
+                </Border>
+                <!--#endregion End of savings-->
+
+
+
+            </Grid>
+            <!--#endregion End of BMI calc and savings plan-->
+
+            <!--#region Grid2 BMR calculator-->
+            <Border BorderThickness="2" BorderBrush="#eee" Padding="2">
+                <Grid Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!--#region BMR input-->
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="BMR calculator" FontWeight="Bold" FontSize="13" Padding="2"/>
+
+                        <Grid Margin="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--#region  Gender and age-->
+                            <StackPanel Margin="2">
+                                <TextBlock Text="Gender" Margin="2" Padding="2" FontWeight="Bold"/>
+                                <RadioButton x:Name="femaleGenderRadio" Content="Female" Margin="2" Padding="2"/>
+                                <RadioButton x:Name="maleGenderRadio" Content="Male" Margin="2" Padding="2"/>
+                                <RadioButton x:Name="nonbinaryGenderRadio" Content="Non-Binary" Margin="2" Padding="2"/>
+                                <RadioButton x:Name="prefernotGenderRadio" Content="Prefer not to say" Margin="2" Padding="2"/>
+                                <TextBlock/>
+                                <TextBlock/>
+                                <Grid Margin="5 2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Age:" Margin="2" Padding="2" TextAlignment="Center"/>
+                                    <TextBox x:Name="ageTextBox" Margin="2" Padding="2" HorizontalAlignment="Stretch" Grid.Column="1"/>
+                                </Grid>
+                            </StackPanel>
+                            <!--#endregion gender and age-->
+                            <!--#region activitylevel-->
+                            <StackPanel Grid.Column="1" Margin="2">
+                                <TextBlock Text="Weekly Activity level" Margin="2" Padding="2" FontWeight="Bold"/>
+                                <RadioButton x:Name="weeklySedentaryActivieRadio" Content="Sedentary (little to no activity)" Margin="2" Padding="2"/>
+                                <RadioButton x:Name="weeklyLightActivieRadio" Content="Lightly active (1 to 3 times)" Margin="2" Padding="2"/>
+                                <RadioButton x:Name="weeklyModerateActivieRadio" Content="Moderatly active (3-5 times)" Margin="2" Padding="2"/>
+                                <RadioButton x:Name="weeklyVeryActiveRadio" Content="Very active (5 to 7 times)" Margin="2" Padding="2"/>
+                                <RadioButton x:Name="weeklyExtraActiveRadio" Content="Extra active, hard excersises or work" Margin="2" Padding="2"/>
+
+                            </StackPanel>
+                            <!--#endregion activitylevel-->
+                        </Grid>
+                        <Button x:Name="bmrCalcButton" Click="bmrCalcButton_Click" Content="Calculate"  FontSize="14" Padding="2" Margin="02 10"/>
+
+                    </StackPanel>
+
+
+                    <!--#endregion End of BMR input-->
+
+                    <!--#region BMR results-->
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        
+                            <TextBlock Text="BMR Results" Grid.Row="0" FontWeight="Bold" FontSize="13" Padding="2"/>
+                            <TextBox x:Name="bmrResultsTextBox" IsReadOnly="True" Background="#eee" Grid.Row="1" Margin="2" Padding="2"/>
+                        
+                    </Grid>
+                    <!--#endregion BMR results-->
+
+
+                </Grid>
+            </Border>
+            <!--#endregion End of BMR calculator-->
+
+
+        </StackPanel>
+    </Border>
+</Window>

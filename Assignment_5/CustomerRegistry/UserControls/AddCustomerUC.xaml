@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="CustomerRegistry.UserControls.AddCustomerUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CustomerRegistry.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border  Padding="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Name:" FontWeight="Bold" Margin="2 12 2 2" Padding="2"/>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="First"  TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.FirstName}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="Last" TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.LastName}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <TextBlock Text="Phone:" FontWeight="Bold" Margin="2 12 2 2" Padding="2"/>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="Office" TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.Contact.Phone.Office}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="Private" TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.Contact.Phone.Private}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <TextBlock Text="E-mail:" FontWeight="Bold" Margin="2 12 2 2" Padding="2"/>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="Buisnesss" TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.Contact.Email.Work}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="Private" TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.Contact.Email.Personal}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <TextBlock Text="Adress:" FontWeight="Bold" Margin="2 12 2 2" Padding="2"/>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="Street"  TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.Contact.Adress.Street}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="City" TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.Contact.Adress.City}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="Zip"  TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <TextBox Text="{Binding CustomerView.CurCustomer.Contact.Adress.Zip}" MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5 0">
+                    <TextBlock Text="Country"  TextAlignment="Justify" Width="48" Margin="2" Padding="2"/>
+                    <ComboBox ItemsSource="{Binding CustomerView.Countries}" SelectedIndex="{Binding CustomerView.CurCustomer.Contact.Adress.CountryEnum}"  MinWidth="144" Margin="2" Padding="2"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBox Text="{Binding CustomerView.ReqText, Mode=OneWay}" IsEnabled="False" TextWrapping="Wrap" Grid.Column="1"/>
+        </Grid>
+    </Border>
+</UserControl>

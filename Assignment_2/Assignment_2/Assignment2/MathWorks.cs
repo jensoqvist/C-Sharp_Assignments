@@ -73,7 +73,7 @@ namespace Assignment2
         {
             int num1 = getOneNumber("first");
             int num2 = getOneNumber("second");
-            return orderNums(num1, num2);
+            return orderNums(num1, num2); 
 
         }
 
