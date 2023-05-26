@@ -13,11 +13,12 @@
         </Grid.ColumnDefinitions>
         <StackPanel>
             <TextBlock Text="Hour:"/>
-            <ComboBox/>
+            <ComboBox ItemsSource="{Binding TaskView.Hour}" SelectedValue="{Binding TaskView.CurTask.Hour}" ItemStringFormat="00" IsEditable="False" />
+
         </StackPanel>
         <StackPanel Grid.Column="1">
             <TextBlock Text="Minute:"/>
-            <ComboBox/>
+            <ComboBox ItemsSource="{Binding TaskView.Minute}" SelectedValue="{Binding TaskView.CurTask.Minute}" ItemStringFormat="00" IsEditable="False" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -13,6 +13,6 @@
         <ComboBox ItemsSource="{Binding TaskView.PriorityType}" SelectedIndex="{Binding TaskView.CurTask.Priority}"/>
         <TextBlock Text="Task Description:"/>
         <TextBox Text="{Binding TaskView.CurTask.Description}"/>
-        <Button Content="Add task" Margin="15"/>
+        <Button Content="Save task" Command="{Binding SaveTask}" Margin="15"/>
     </StackPanel>
 </UserControl>

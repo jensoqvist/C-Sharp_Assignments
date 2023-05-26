@@ -7,6 +7,7 @@ using ToDoReminder.Data;
 
 namespace ToDoReminder
 {
+    [Serializable]
     public class TaskManager
     {
         #region fields
@@ -26,8 +27,8 @@ namespace ToDoReminder
         /// </summary>
         public TaskManager() 
         {
-            TestTasks testTasks = new TestTasks();
-            TasksToDo = testTasks.Tasks;
+            //TestTasks testTasks = new TestTasks();
+            //TasksToDo = testTasks.Tasks;
 
         }
         #endregion

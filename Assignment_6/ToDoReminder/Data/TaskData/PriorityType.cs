@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoReminder.Data.TaskData
 {
+    [Serializable]
     public enum PriorityType
     {
         Very_Important,

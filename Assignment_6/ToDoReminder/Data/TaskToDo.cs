@@ -8,6 +8,7 @@ using ToDoReminder.Data.TaskData;
 
 namespace ToDoReminder.Data
 {
+    [Serializable]
     public class TaskToDo
     {
         #region fields
@@ -36,7 +37,7 @@ namespace ToDoReminder.Data
         /// Priority of task, enum
         /// </summary>
         /// 
-        public string Time { get { return string.Format("{0}:{1}", hour, minute); } }
+        public string Time { get { return string.Format("{0:00}:{1:00}", hour, minute); } }
         public int Priority { get { return priority; } set { priority = value; } } 
         /// <summary>
         /// Priority of task
@@ -46,6 +47,17 @@ namespace ToDoReminder.Data
         /// Description of task
         /// </summary>
         public string Description { get { return description; } set { description = value; } }
+
+        public bool ValidInput 
+        { 
+            get 
+            { 
+                if (Description != null)
+                    return true; 
+                else 
+                    return false;
+            } 
+        }
         #endregion
 
         /// <summary>
@@ -53,7 +65,7 @@ namespace ToDoReminder.Data
         /// </summary>
         public TaskToDo() 
         {
-        
+            Date = DateTime.Now;
         }
     }
 }
